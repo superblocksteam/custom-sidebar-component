@@ -48,6 +48,7 @@ const FireNav = styled(List)<{ component?: React.ElementType }>({
 export default function Component({
   items,
   selectedItem,
+  theme
 }: Props) {
   // If any of your component's properties are connected to APIs, you might want to show a loading indicator while the data is
   // loading. The `useSuperblocksIsLoading` hook returns a boolean that indicates whether this is the case.
@@ -84,7 +85,7 @@ export default function Component({
             },
           },
           palette: {
-            mode: 'dark',
+            mode: theme?.mode === "DARK" ? "dark" : "light",
             primary: { main: 'rgb(102, 157, 246)' },
             background: { paper: 'rgb(5, 30, 52)' },
           },
@@ -109,7 +110,7 @@ export default function Component({
                         fontSize: 14,
                         fontWeight: 400,
                         lineHeight: "16px",
-                        color: 'rgb(69, 77, 95)',
+                        color: theme?.colors?.neutral700,
                         padding: "8px 16px",
                         marginBottom: "2px",
                         fontFamily: "Inter"
@@ -125,12 +126,16 @@ export default function Component({
                             minHeight: 32,
                             borderRadius: "4px",
                             backgroundColor: "",
-                            color: "#404040",
+                            color: theme?.colors?.neutral700,
                             marginBottom: "2px",
                             fontFamily: "Inter",
                             "&:hover": {
-                              backgroundColor: "black",
-                              color: "white",
+                              backgroundColor: isSelected
+                                ? theme?.colors?.neutral900
+                                : theme?.colors?.neutral100,
+                              color: isSelected
+                                ? theme?.colors?.neutral
+                                : theme?.colors?.neutral900,
                             },
                           }}
                           onClick={() => selectItem(child.label)}

@@ -6,23 +6,24 @@ export default {
   name: "Sidebar",
   displayName: "Sidebar",
   componentPath: "components/Sidebar/component.tsx",
-  properties: [{
-    path: "items",
-    dataType: "any",
-    propertiesPanelDisplay: {
-      "label":"Navigation items",
-      "controlType":"js-expr",
-      "defaultValue": '[]'
-    },
-    isExternallyReadable: true,
-    isExternallySettable: true
+  properties: [
+    {
+      path: "items",
+      dataType: "any",
+      propertiesPanelDisplay: {
+        label: "Navigation items",
+        controlType: "js-expr",
+        defaultValue: "[]",
+      },
+      isExternallyReadable: true,
+      isExternallySettable: true,
     },
     {
-    path: "selectedItem",
-    dataType: "string",
-    propertiesPanelDisplay: undefined,
-    isExternallyReadable: true,
-    isExternallySettable: true
+      path: "selectedItem",
+      dataType: "string",
+      propertiesPanelDisplay: undefined,
+      isExternallyReadable: true,
+      isExternallySettable: true,
     },
     {
       path: "theme",
@@ -32,10 +33,12 @@ export default {
       isExternallySettable: true
     }
   ],
-  events: [{
-    label: "onItemSelect",
-    path: "onItemSelect"
-    },],
+  events: [
+    {
+      label: "onItemSelect",
+      path: "onItemSelect",
+    },
+  ],
   gridDimensions: {
     initialColumns: 50,
     initialRows: 30,
