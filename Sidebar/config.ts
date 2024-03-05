@@ -23,7 +23,15 @@ export default {
     propertiesPanelDisplay: undefined,
     isExternallyReadable: true,
     isExternallySettable: true
-    },],
+    },
+    {
+      path: "theme",
+      dataType: "any",
+      propertiesPanelDisplay: {"label":"Theme","controlType":"js-expr"},
+      isExternallyReadable: false,
+      isExternallySettable: true
+    }
+  ],
   events: [{
     label: "onItemSelect",
     path: "onItemSelect"
